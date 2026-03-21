@@ -1,10 +1,53 @@
-[gd_scene format=3 uid="uid://b0ojlcwqcurg7"]
+[gd_scene format=3 uid="uid://c6srqmff1lx37"]
 
-[ext_resource type="Script" uid="uid://dxh7c1xpvlf6k" path="res://scenes/Player/player.gd" id="1_1kbk7"]
+[ext_resource type="Script" uid="uid://u18hqyx0usf4" path="res://Scenes/Player/player.gd" id="1_1kbk7"]
 [ext_resource type="Texture2D" uid="uid://gtnammm0prgr" path="res://Assets/Pixel Adventure/Main Characters/Virtual Guy/Idle (32x32).png" id="2_gqjuk"]
+[ext_resource type="Script" uid="uid://dq4p6oippgxcy" path="res://States/state_machine.gd" id="3_dd0ac"]
+[ext_resource type="Script" uid="uid://chsljmnknw28s" path="res://States/idle_state.gd" id="4_0u5uq"]
+[ext_resource type="Script" uid="uid://bn7cy65bmwj8h" path="res://States/jump_state.gd" id="5_jlvik"]
+[ext_resource type="Script" uid="uid://1cwliacymf6f" path="res://States/walk_state.gd" id="6_gk6dx"]
+[ext_resource type="Script" uid="uid://dtfqivh363gjc" path="res://States/falling_state.gd" id="7_0u5uq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1kbk7"]
 size = Vector2(66, 78)
+
+[sub_resource type="Animation" id="Animation_xpcdj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mtuoh"]
+resource_name = "idle"
+length = 2.0666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.46666667, 0.7, 0.93333334, 1.1666666, 1.4, 1.6333333, 1.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 9, 10]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_htcer"]
+_data = {
+&"RESET": SubResource("Animation_xpcdj"),
+&"idle": SubResource("Animation_mtuoh")
+}
 
 [node name="Player" type="CharacterBody2D" unique_id=383859494]
 collision_mask = 2
@@ -14,8 +57,31 @@ script = ExtResource("1_1kbk7")
 scale = Vector2(3, 3)
 texture = ExtResource("2_gqjuk")
 hframes = 11
-frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=450938784]
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_1kbk7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=837996713]
+libraries/ = SubResource("AnimationLibrary_htcer")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1209606300 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_dd0ac")
+initial_state = NodePath("IdleState")
+metadata/_custom_type_script = "uid://dq4p6oippgxcy"
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1127234343]
+script = ExtResource("4_0u5uq")
+metadata/_custom_type_script = "uid://chsljmnknw28s"
+
+[node name="JumpState" type="Node" parent="StateMachine" unique_id=1927994884]
+script = ExtResource("5_jlvik")
+metadata/_custom_type_script = "uid://bn7cy65bmwj8h"
+
+[node name="WalkState" type="Node" parent="StateMachine" unique_id=385985427]
+script = ExtResource("6_gk6dx")
+metadata/_custom_type_script = "uid://1cwliacymf6f"
+
+[node name="FallingState" type="Node" parent="StateMachine" unique_id=396965868]
+script = ExtResource("7_0u5uq")
+metadata/_custom_type_script = "uid://dtfqivh363gjc"
