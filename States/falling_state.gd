@@ -18,6 +18,9 @@ func physics_update(delta: float) -> void:
 	
 	character.move_and_slide()
 	
+	if character.is_on_wall():
+		state_machine.change_state("wallslidestate")
+	
 	if character.is_on_floor():
 		if direction != 0:
 			state_machine.change_state("walkstate")

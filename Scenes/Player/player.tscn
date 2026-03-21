@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c6srqmff1lx37"]
 
 [ext_resource type="Texture2D" uid="uid://dhxrb6lduqjej" path="res://Assets/Pixel Adventure/Main Characters/Virtual Guy/Run (32x32).png" id="1_0u5uq"]
+[ext_resource type="Script" uid="uid://u18hqyx0usf4" path="res://Scenes/Player/player.gd" id="1_jhyir"]
 [ext_resource type="Texture2D" uid="uid://gtnammm0prgr" path="res://Assets/Pixel Adventure/Main Characters/Virtual Guy/Idle (32x32).png" id="2_gqjuk"]
 [ext_resource type="Texture2D" uid="uid://bhqiu6a402nad" path="res://Assets/Pixel Adventure/Main Characters/Virtual Guy/Fall (32x32).png" id="2_jlvik"]
 [ext_resource type="Script" uid="uid://dq4p6oippgxcy" path="res://States/state_machine.gd" id="3_dd0ac"]
@@ -8,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://clvey3vhcvin1" path="res://Assets/Pixel Adventure/Main Characters/Virtual Guy/Jump (32x32).png" id="4_gk6dx"]
 [ext_resource type="Script" uid="uid://bn7cy65bmwj8h" path="res://States/jump_state.gd" id="5_jlvik"]
 [ext_resource type="Script" uid="uid://1cwliacymf6f" path="res://States/walk_state.gd" id="6_gk6dx"]
+[ext_resource type="Texture2D" uid="uid://bllhx1mddfpd2" path="res://Assets/Pixel Adventure/Main Characters/Virtual Guy/Wall Jump (32x32).png" id="6_oikmp"]
 [ext_resource type="Script" uid="uid://dtfqivh363gjc" path="res://States/falling_state.gd" id="7_0u5uq"]
+[ext_resource type="Script" uid="uid://b8pp012a74ot7" path="res://States/wall_slide_state.gd" id="11_74mp2"]
 
 [sub_resource type="Animation" id="Animation_xpcdj"]
 length = 0.001
@@ -52,6 +55,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_gk6dx"]
 resource_name = "fall"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -133,6 +137,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_jhyir"]
 resource_name = "jump"
 length = 0.1
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -211,17 +216,60 @@ tracks/2/keys = {
 "values": [12]
 }
 
+[sub_resource type="Animation" id="Animation_06tpx"]
+resource_name = "wall_slide"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_oikmp")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_htcer"]
 _data = {
 &"RESET": SubResource("Animation_xpcdj"),
 &"fall": SubResource("Animation_gk6dx"),
 &"idle": SubResource("Animation_mtuoh"),
 &"jump": SubResource("Animation_jhyir"),
-&"walk": SubResource("Animation_jlvik")
+&"walk": SubResource("Animation_jlvik"),
+&"wall_slide": SubResource("Animation_06tpx")
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=383859494]
 collision_mask = 2
+script = ExtResource("1_jhyir")
 metadata/_edit_horizontal_guides_ = [39.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1434894689]
@@ -230,7 +278,7 @@ texture = ExtResource("1_0u5uq")
 hframes = 12
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1248589245]
-polygon = PackedVector2Array(-33, 48, -33, 0, -32, -8, -29, -15, -26, -20, -20, -26, -13, -30, -8, -32, 0, -33, 8, -32, 16, -29, 24, -23, 29, -16, 32, -8, 33, 0, 33, 48)
+polygon = PackedVector2Array(-27, 48, -27, 0, -27, -9, -25, -15, -22, -20, -18, -25, -13, -30, -8, -32, 0, -33, 8, -32, 13, -30, 18, -25, 22, -20, 25, -15, 27, -9, 27, 0, 27, 48)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=837996713]
 libraries/ = SubResource("AnimationLibrary_htcer")
@@ -258,6 +306,10 @@ metadata/_custom_type_script = "uid://1cwliacymf6f"
 [node name="FallingState" type="Node" parent="StateMachine" unique_id=396965868]
 script = ExtResource("7_0u5uq")
 metadata/_custom_type_script = "uid://dtfqivh363gjc"
+
+[node name="WallSlideState" type="Node" parent="StateMachine" unique_id=221662394]
+script = ExtResource("11_74mp2")
+metadata/_custom_type_script = "uid://b8pp012a74ot7"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1571597378]
 limit_left = 0
