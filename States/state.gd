@@ -1,7 +1,9 @@
 class_name State extends Node
 
 var state_machine: StateMachine
-var character: Player
+var character: CharacterBody2D
+var animation_player: AnimationPlayer
+var sprite_2d: Sprite2D
 
 func enter() -> void:
 	pass
@@ -9,11 +11,11 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
 	pass
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	pass
 
-func handle_input(event: InputEvent) -> void:
+func handle_input(_event: InputEvent) -> void:
 	pass

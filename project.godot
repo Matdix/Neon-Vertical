@@ -15,6 +15,10 @@ run/main_scene="uid://cwwgd18auee02"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 left={
@@ -42,3 +46,4 @@ jump={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+anti_aliasing/quality/msaa_2d=3

@@ -5,6 +5,7 @@ var walk_speed = 20
 
 func enter() -> void:
 	character.velocity.y = JUMP_SPEED
+	animation_player.play("jump")
 
 func physics_update(delta: float) -> void:
 	character.velocity.y += character.get_gravity().y * delta
@@ -13,6 +14,11 @@ func physics_update(delta: float) -> void:
 	
 	var direction = Input.get_axis("left", "right")
 	character.velocity.x = walk_speed * direction * 1000 * delta
+	
+	if direction < 0:
+		sprite_2d.flip_h = true
+	elif direction > 0:
+		sprite_2d.flip_h = false
 	
 	character.move_and_slide()
 	

@@ -1,6 +1,8 @@
 class_name StateMachine extends Node
 
 @export var initial_state: State
+@export var animation_player: AnimationPlayer
+@export var sprite_2d: Sprite2D
 
 var current_state: State
 var states: Dictionary = {}
@@ -11,6 +13,8 @@ func _ready() -> void:
 			states[child.name.to_lower()] = child
 			child.state_machine = self
 			child.character = get_parent()
+			child.animation_player = animation_player
+			child.sprite_2d = sprite_2d
 	
 	if initial_state:
 		change_state(initial_state.name.to_lower())
