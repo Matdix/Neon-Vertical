@@ -28,3 +28,7 @@ func handle_input(_event: InputEvent) -> void:
 		state_machine.change_state("fallingstate")
 	if Input.is_action_pressed("right") and right_wall_ray_cast.is_colliding():
 		state_machine.change_state("fallingstate")
+
+func exit() -> void:
+	GlobalVariables.make_coyote_time = true
+	GlobalVariables.has_double_jump = false

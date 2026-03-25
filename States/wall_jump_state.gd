@@ -13,6 +13,9 @@ func enter() -> void:
 	animation_player.play("jump")
 
 func physics_update(delta: float) -> void:
+	if Input.is_action_pressed("jump"):
+		character.velocity.y += LONG_JUMP_SPEED * delta
+	
 	character.velocity.y += character.get_gravity().y * delta
 	if character.velocity.y > 0:
 		state_machine.change_state("fallingstate")
@@ -48,3 +51,10 @@ func physics_update(delta: float) -> void:
 	
 	jumping = false
 	
+
+func handle_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("jump") and !GlobalVariables.has_double_jump:
+		state_machine.change_state("doublejumpstate")
+
+func exit() -> void:
+	GlobalVariables.make_coyote_time = false
