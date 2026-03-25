@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*uid://b1obtcf2dwyl2"
+GlobalVariables="*uid://bdmhus8fbvkdh"
 
 [display]
 
@@ -46,6 +47,7 @@ jump={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Fondations"
 2d_physics/layer_3="Enemies"
+2d_physics/layer_4="Platform"
 
 [rendering]
 

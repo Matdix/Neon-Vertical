@@ -3,6 +3,10 @@ class_name StateMachine extends Node
 @export var initial_state: State
 @export var animation_player: AnimationPlayer
 @export var sprite_2d: Sprite2D
+@export var left_wall_ray_cast: RayCast2D
+@export var right_wall_ray_cast: RayCast2D
+
+
 
 var current_state: State
 var states: Dictionary = {}
@@ -15,6 +19,8 @@ func _ready() -> void:
 			child.character = get_parent()
 			child.animation_player = animation_player
 			child.sprite_2d = sprite_2d
+			child.left_wall_ray_cast = left_wall_ray_cast
+			child.right_wall_ray_cast = right_wall_ray_cast
 	
 	if initial_state:
 		change_state(initial_state.name.to_lower())

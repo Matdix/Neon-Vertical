@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bllhx1mddfpd2" path="res://Assets/Pixel Adventure/Main Characters/Virtual Guy/Wall Jump (32x32).png" id="6_oikmp"]
 [ext_resource type="Script" uid="uid://dtfqivh363gjc" path="res://States/falling_state.gd" id="7_0u5uq"]
 [ext_resource type="Script" uid="uid://b8pp012a74ot7" path="res://States/wall_slide_state.gd" id="11_74mp2"]
+[ext_resource type="Script" uid="uid://cjkbv8iimi8oq" path="res://States/wall_jump_state.gd" id="13_06tpx"]
 
 [sub_resource type="Animation" id="Animation_xpcdj"]
 length = 0.001
@@ -268,7 +269,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=383859494]
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_jhyir")
 metadata/_edit_horizontal_guides_ = [39.0]
 
@@ -284,11 +285,13 @@ polygon = PackedVector2Array(-27, 48, -27, 0, -27, -9, -25, -15, -22, -20, -18, 
 libraries/ = SubResource("AnimationLibrary_htcer")
 speed_scale = 5.0
 
-[node name="StateMachine" type="Node" parent="." unique_id=1209606300 node_paths=PackedStringArray("initial_state", "animation_player", "sprite_2d")]
+[node name="StateMachine" type="Node" parent="." unique_id=1209606300 node_paths=PackedStringArray("initial_state", "animation_player", "sprite_2d", "left_wall_ray_cast", "right_wall_ray_cast")]
 script = ExtResource("3_dd0ac")
 initial_state = NodePath("IdleState")
 animation_player = NodePath("../AnimationPlayer")
 sprite_2d = NodePath("../Sprite2D")
+left_wall_ray_cast = NodePath("../LeftWallRayCast")
+right_wall_ray_cast = NodePath("../RightWallRayCast")
 metadata/_custom_type_script = "uid://dq4p6oippgxcy"
 
 [node name="IdleState" type="Node" parent="StateMachine" unique_id=1127234343]
@@ -311,8 +314,22 @@ metadata/_custom_type_script = "uid://dtfqivh363gjc"
 script = ExtResource("11_74mp2")
 metadata/_custom_type_script = "uid://b8pp012a74ot7"
 
+[node name="WallJumpState" type="Node" parent="StateMachine" unique_id=1171819555]
+script = ExtResource("13_06tpx")
+metadata/_custom_type_script = "uid://cjkbv8iimi8oq"
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1571597378]
 limit_left = 0
 limit_right = 1152
 limit_bottom = 648
 position_smoothing_enabled = true
+
+[node name="LeftWallRayCast" type="RayCast2D" parent="." unique_id=1278713554]
+position = Vector2(0, 9)
+target_position = Vector2(30, 0)
+collision_mask = 2
+
+[node name="RightWallRayCast" type="RayCast2D" parent="." unique_id=230192557]
+position = Vector2(0, 9)
+target_position = Vector2(-30, 0)
+collision_mask = 2
