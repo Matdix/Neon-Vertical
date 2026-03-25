@@ -1,7 +1,5 @@
 class_name WalkState extends State
 
-var walk_speed = 20
-
 func enter() -> void:
 	animation_player.play("walk")
 

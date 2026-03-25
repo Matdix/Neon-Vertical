@@ -1,8 +1,5 @@
 class_name JumpState extends State
 
-var JUMP_SPEED = -600
-var walk_speed = 20
-
 func enter() -> void:
 	character.velocity.y = JUMP_SPEED
 	animation_player.play("jump")

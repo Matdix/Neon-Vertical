@@ -3,23 +3,19 @@
 [ext_resource type="Script" uid="uid://d0cacoqfn7yst" path="res://Scenes/Main Scene/main_scene.gd" id="1_3mn0a"]
 [ext_resource type="Texture2D" uid="uid://cb70oej557wcb" path="res://Assets/Pixel Adventure/Background/Green.png" id="1_srt24"]
 [ext_resource type="Script" uid="uid://doxmcrabqohq4" path="res://Scenes/Main Scene/background_movement.gd" id="2_6g2ny"]
-[ext_resource type="Script" uid="uid://dbnf4bffaddpx" path="res://Scenes/Main Scene/fondations.gd" id="3_xtyql"]
+[ext_resource type="Script" uid="uid://dbnf4bffaddpx" path="res://Scenes/Main Scene/level_manager.gd" id="3_xtyql"]
 [ext_resource type="PackedScene" uid="uid://xiln68karyow" path="res://Chunks/chunk_1.tscn" id="4_0evse"]
+[ext_resource type="PackedScene" uid="uid://darf6mvj8o5id" path="res://Chunks/chunk_2.tscn" id="4_xtyql"]
 
 [node name="MainScene" type="Node" unique_id=1373027038]
 script = ExtResource("1_3mn0a")
 
-[node name="Level" type="Node2D" parent="." unique_id=1458480602]
-
-[node name="Fondations" type="Node2D" parent="Level" unique_id=1234217652]
+[node name="LevelManager" type="Node2D" parent="." unique_id=1458480602]
 script = ExtResource("3_xtyql")
-spawnable_chunks = Array[PackedScene]([ExtResource("4_0evse")])
-
-[node name="Shadows" type="Node2D" parent="Level" unique_id=2068913999]
+spawnable_chunks = Array[PackedScene]([ExtResource("4_0evse"), ExtResource("4_xtyql")])
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1638194558]
 layer = -1
-follow_viewport_enabled = true
 
 [node name="Background1" type="TextureRect" parent="Background" unique_id=1309802054]
 anchors_preset = 15
