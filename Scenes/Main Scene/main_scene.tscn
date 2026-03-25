@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dbnf4bffaddpx" path="res://Scenes/Main Scene/level_manager.gd" id="3_xtyql"]
 [ext_resource type="PackedScene" uid="uid://xiln68karyow" path="res://Chunks/chunk_1.tscn" id="4_0evse"]
 [ext_resource type="PackedScene" uid="uid://darf6mvj8o5id" path="res://Chunks/chunk_2.tscn" id="4_xtyql"]
+[ext_resource type="Script" uid="uid://caduo2blq4iji" path="res://Scenes/Main Scene/height_label.gd" id="7_0evse"]
 
 [node name="MainScene" type="Node" unique_id=1373027038]
 script = ExtResource("1_3mn0a")
@@ -50,3 +51,31 @@ grow_vertical = 2
 texture = ExtResource("1_srt24")
 stretch_mode = 1
 script = ExtResource("2_6g2ny")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1115349296]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1355237921]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer" unique_id=2017398337]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer" unique_id=1363531163]
+layout_mode = 2
+
+[node name="HeightLabel" type="Label" parent="UI/MarginContainer/HBoxContainer/VBoxContainer" unique_id=802026496]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "Height : 0 m"
+script = ExtResource("7_0evse")

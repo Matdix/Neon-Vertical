@@ -8,7 +8,8 @@ var left_wall_ray_cast: RayCast2D
 var right_wall_ray_cast: RayCast2D
 
 @export var walk_speed = 20
-@export var JUMP_SPEED = -600
+@export var JUMP_SPEED = -500
+@export var LONG_JUMP_SPEED = -400
 
 func enter() -> void:
 	pass

@@ -27,4 +27,9 @@ func physics_update(delta: float) -> void:
 
 func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("jump"):
+		GlobalVariables.make_coyote_time = true
 		state_machine.change_state("jumpstate")
+
+func exit() -> void:
+	GlobalVariables.make_coyote_time = true
+	GlobalVariables.has_double_jump = false

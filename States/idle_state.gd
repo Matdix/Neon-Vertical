@@ -12,3 +12,7 @@ func handle_input(_event: InputEvent) -> void:
 		state_machine.change_state("walkstate")
 	elif Input.is_action_just_pressed("jump"):
 		state_machine.change_state("jumpstate")
+
+func exit() -> void:
+	GlobalVariables.make_coyote_time = false
+	GlobalVariables.has_double_jump = false
