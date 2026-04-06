@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dbnf4bffaddpx" path="res://Scenes/Main Scene/level_manager.gd" id="3_xtyql"]
 [ext_resource type="PackedScene" uid="uid://xiln68karyow" path="res://Chunks/chunk_1.tscn" id="4_0evse"]
 [ext_resource type="PackedScene" uid="uid://darf6mvj8o5id" path="res://Chunks/chunk_2.tscn" id="4_xtyql"]
+[ext_resource type="PackedScene" uid="uid://pmoba3m48ese" path="res://Chunks/chunk_3.tscn" id="5_c1alk"]
 [ext_resource type="Script" uid="uid://caduo2blq4iji" path="res://Scenes/Main Scene/height_label.gd" id="7_0evse"]
 
 [node name="MainScene" type="Node" unique_id=1373027038]
@@ -13,7 +14,7 @@ script = ExtResource("1_3mn0a")
 
 [node name="LevelManager" type="Node2D" parent="." unique_id=1458480602]
 script = ExtResource("3_xtyql")
-spawnable_chunks = Array[PackedScene]([ExtResource("4_0evse"), ExtResource("4_xtyql")])
+spawnable_chunks = Array[PackedScene]([ExtResource("4_0evse"), ExtResource("4_xtyql"), ExtResource("5_c1alk")])
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1638194558]
 layer = -1

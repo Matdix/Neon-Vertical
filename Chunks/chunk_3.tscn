@@ -1,0 +1,87 @@
+[gd_scene format=4 uid="uid://pmoba3m48ese"]
+
+[ext_resource type="PackedScene" uid="uid://cs8osvm5m1cnu" path="res://Chunks/base_chunk.tscn" id="1_itrnu"]
+[ext_resource type="Texture2D" uid="uid://dlqot3ykx1h0a" path="res://Assets/Pixel Adventure/Other/Shadow.png" id="2_718ii"]
+
+[node name="Chunk3" unique_id=77065454 instance=ExtResource("1_itrnu")]
+
+[node name="TileMap" parent="." index="0" unique_id=1411005102]
+tile_map_data = PackedByteArray("AAD///D/AAABAAEAAAD///H/AAABAAkAAAD///L/AAABAAkAAAD///P/AAABAAkAAAD///T/AAABAAkAAAD///X/AAABAAkAAAD///b/AAABAAkAAAD///f/AAABAAkAAAD///j/AAABAAkAAAD///n/AAABAAkAAAD///r/AAABAAkAAAD///v/AAABAAkAAAD///z/AAABAAkAAAD///3/AAABAAkAAAD///7/AAABAAkAAAD/////AAABAAkAAAAXAP//AAAAAAEAAAAXAP7/AAAAAAEAAAAXAP3/AAAAAAEAAAAXAPz/AAAEAAAAAAAXAPv/AAABAAEAAAAXAPr/AAABAAEAAAAXAPn/AAAEAAEAAAAXAPj/AAAAAAEAAAAXAPf/AAAAAAEAAAAXAPb/AAAAAAEAAAAXAPX/AAAAAAEAAAAXAPT/AAAAAAEAAAAXAPP/AAAAAAEAAAAXAPL/AAAAAAEAAAAXAPH/AAAAAAEAAAAXAPD/AAAAAAEAAAAYAPD/AAABAAUAAAAYAPH/AAABAAUAAAAYAPL/AAABAAUAAAAYAPP/AAABAAUAAAAYAPT/AAABAAUAAAAYAPX/AAABAAUAAAAYAPb/AAABAAUAAAAYAPf/AAABAAUAAAAYAPj/AAABAAUAAAAYAPn/AAABAAUAAAAYAPr/AAABAAUAAAAYAPv/AAABAAUAAAAYAPz/AAABAAUAAAAYAP3/AAABAAUAAAAYAP7/AAABAAUAAAAYAP//AAABAAUAAAABAPH/AAACAAAAAAABAPL/AAACAAEAAAABAPP/AAACAAEAAAABAPf/AAADAAAAAAABAPj/AAACAAEAAAABAPn/AAACAAEAAAABAPr/AAACAAEAAAABAPv/AAACAAIAAAAAAPD/AAACAAEAAAAAAPH/AAADAAEAAAAAAPL/AAABAAkAAAAAAPP/AAABAAkAAAAAAPT/AAABAAkAAAAAAPX/AAABAAkAAAAAAPb/AAABAAkAAAAAAPf/AAABAAkAAAAAAPj/AAABAAkAAAAAAPn/AAABAAkAAAAAAPr/AAABAAkAAAAAAPv/AAADAAAAAAAAAPz/AAACAAEAAAAAAP3/AAACAAEAAAAAAP//AAACAAEAAAAAAP7/AAACAAEAAAACAPf/AAABAAIAAAADAPf/AAABAAIAAAAEAPf/AAABAAIAAAAFAPf/AAACAAIAAAAFAPb/AAACAAEAAAAFAPX/AAACAAAAAAAEAPX/AAADAAEAAAAEAPT/AAACAAAAAAADAPT/AAABAAAAAAACAPT/AAABAAAAAAABAPT/AAADAAEAAAACAPX/AAABAAEAAAADAPX/AAABAAEAAAADAPb/AAABAAEAAAAEAPb/AAABAAEAAAACAPb/AAABAAEAAAABAPX/AAABAAEAAAABAPb/AAABAAEAAAAVAPz/AAAAAAIAAAAWAPz/AAABAAIAAAAVAPv/AAAAAAEAAAAVAPr/AAAAAAEAAAAVAPn/AAAAAAAAAAAWAPn/AAABAAAAAAAWAPr/AAABAAEAAAAWAPv/AAABAAEAAAAGAP7/AAAGAAIAAAAHAP7/AAAHAAIAAAAIAP7/AAAHAAIAAAAJAP7/AAAHAAIAAAAKAP7/AAAIAAIAAAAGAP3/AAAGAAEAAAAGAPz/AAAGAAEAAAAGAPv/AAAGAAAAAAAHAPv/AAAHAAAAAAAIAPv/AAAKAAEAAAAIAPr/AAAGAAEAAAAIAPj/AAAGAAAAAAAIAPn/AAAGAAEAAAAJAPj/AAAHAAAAAAALAPj/AAAIAAAAAAAKAPj/AAAHAAAAAAALAPn/AAAIAAEAAAALAPr/AAAIAAEAAAALAPv/AAAIAAEAAAALAPz/AAAIAAEAAAALAP3/AAAIAAIAAAAKAPn/AAAHAAEAAAAKAPr/AAAHAAEAAAAJAPr/AAAHAAEAAAAJAPv/AAANAAEAAAAKAPv/AAAOAAEAAAAJAPn/AAAHAAEAAAAKAPz/AAAOAAIAAAAJAPz/AAANAAIAAAAJAP3/AAAHAAEAAAAKAP3/AAAJAAAAAAAIAPz/AAAHAAEAAAAIAP3/AAAHAAEAAAAHAP3/AAAHAAEAAAAHAPz/AAAHAAEAAAAWAPj/AAAOAAAAAAAVAPj/AAANAAAAAAAUAPj/AAAMAAAAAAASAPn/AAAGAAIAAAATAPn/AAAHAAIAAAASAPj/AAAGAAEAAAASAPb/AAAGAAAAAAASAPf/AAAGAAEAAAATAPf/AAAJAAAAAAATAPj/AAAIAAEAAAAUAPf/AAAHAAIAAAAVAPf/AAAHAAIAAAAWAPf/AAAIAAIAAAAUAPn/AAAIAAIAAAATAPb/AAAHAAAAAAAUAPb/AAAHAAAAAAAVAPb/AAAKAAEAAAAVAPX/AAAGAAAAAAAWAPX/AAAIAAAAAAAWAPb/AAAIAAEAAAAUAPX/AAAMAAEAAAACAPL/AAANAAEAAAACAPP/AAANAAIAAAADAPL/AAAOAAEAAAADAPP/AAAOAAIAAAALAPL/AAAGAAAAAAALAPP/AAAHAAAAAAALAPT/AAAHAAIAAAAMAPL/AAAHAAAAAAAMAPP/AAAKAAEAAAAMAPT/AAAHAAIAAAANAPL/AAAIAAAAAAANAPP/AAAIAAEAAAANAPT/AAAIAAIAAAAKAPP/AAAGAAAAAAAKAPT/AAAGAAIAAAA=")
+
+[node name="Shadow" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="0" unique_id=12299279]
+position = Vector2(402, -45)
+scale = Vector2(15, 0.3749998)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow13" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="1" unique_id=1688272321]
+position = Vector2(549.00006, -93.00001)
+scale = Vector2(2.6249993, 0.3749998)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow14" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="2" unique_id=1578296677]
+position = Vector2(69.00001, -189)
+scale = Vector2(2.6249993, 0.3749998)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow15" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="3" unique_id=776498405]
+position = Vector2(189, -381.00003)
+scale = Vector2(11.625, 0.3749998)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow5" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="4" unique_id=1334336886]
+position = Vector2(570, -525)
+scale = Vector2(11.999999, 0.3749998)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow9" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="5" unique_id=2019734371]
+position = Vector2(933, -285)
+scale = Vector2(9.374999, 0.3749998)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow11" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="6" unique_id=476553553]
+position = Vector2(1056, -141)
+scale = Vector2(5.999997, 0.3749998)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow2" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="7" unique_id=1989984179]
+position = Vector2(285, -141)
+scale = Vector2(0.37499985, 11.625)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow8" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="8" unique_id=1282697169]
+position = Vector2(861, -381)
+scale = Vector2(0.37499985, 11.625)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow3" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="9" unique_id=684056015]
+position = Vector2(381, -309)
+scale = Vector2(0.37499985, 8.625)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow4" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="10" unique_id=872809330]
+position = Vector2(477, -573)
+scale = Vector2(0.37499985, 5.625001)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow6" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="11" unique_id=371967002]
+position = Vector2(525, -645)
+scale = Vector2(0.37499985, 2.6250007)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow7" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="12" unique_id=602513500]
+position = Vector2(956.99994, -501)
+scale = Vector2(0.37499985, 2.6250007)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow10" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="13" unique_id=1817549022]
+position = Vector2(1005, -210.00002)
+scale = Vector2(0.37499985, 8.999999)
+texture = ExtResource("2_718ii")
+
+[node name="Shadow12" type="Sprite2D" parent="Shadows" parent_id_path=PackedInt32Array(2131587355) index="14" unique_id=527799085]
+position = Vector2(1101, -69.00001)
+scale = Vector2(0.37499985, 8.624999)
+texture = ExtResource("2_718ii")
+
+[node name="Exit" parent="." index="3" unique_id=1856482275]
+position = Vector2(0, -768)

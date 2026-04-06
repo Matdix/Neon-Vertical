@@ -1,6 +1,7 @@
 class_name FallingState extends State
 
-var timer : SceneTreeTimer
+var coyote_timer : SceneTreeTimer
+var jump_buffer_timer : SceneTreeTimer
 
 func enter() -> void:
 	animation_player.play("fall")
@@ -9,12 +10,12 @@ func enter() -> void:
 
 func physics_update(delta: float) -> void:
 	if GlobalVariables.make_coyote_time:
-		if timer.time_left != 0:
+		if coyote_timer.time_left != 0:
 			if Input.is_action_just_pressed("jump"):
 				GlobalVariables.make_coyote_time = false
-				timer = null
+				coyote_timer = null
 				state_machine.change_state("jumpstate")
-		if timer == null:
+		if coyote_timer == null:
 			GlobalVariables.make_coyote_time = false
 	
 	character.velocity.y += character.get_gravity().y * delta
@@ -39,6 +40,9 @@ func physics_update(delta: float) -> void:
 			state_machine.change_state("jumpstate")
 		else:
 			state_machine.change_state("idlestate")
+		if jump_buffer_timer != null:
+			if jump_buffer_timer.time_left != 0:
+				state_machine.change_state("jumpstate")
 	
 	character.move_and_slide()
 
@@ -48,6 +52,9 @@ func exit() -> void:
 func handle_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("jump") and !GlobalVariables.has_double_jump:
 		state_machine.change_state("doublejumpstate")
+	elif Input.is_action_just_pressed("jump") and (coyote_timer == null or coyote_timer.time_left == 0):
+		jump_buffer_timer = get_tree().create_timer(0.1)
+		
 
 func coyote_time() -> void:
-	timer = get_tree().create_timer(0.2)
+	coyote_timer = get_tree().create_timer(0.2)
